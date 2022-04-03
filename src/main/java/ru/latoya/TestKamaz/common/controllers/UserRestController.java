@@ -45,7 +45,7 @@ public class UserRestController {
                 .body(userService.createNewUser(user));
     }
 
-    @PutMapping
+    @PutMapping("/editUser")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         Long id = user.getId();
         User oldUser = userService.findOne(id);
