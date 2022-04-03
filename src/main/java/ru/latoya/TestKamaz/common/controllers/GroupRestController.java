@@ -1,15 +1,15 @@
-package common.controllers;
+package ru.latoya.TestKamaz.common.controllers;
 
-import common.controllers.exeption.PersonNotFoundException;
-import common.model.Group;
-import common.model.Work;
-import common.service.GroupService;
+import ru.latoya.TestKamaz.common.controllers.exeption.PersonNotFoundException;
+import ru.latoya.TestKamaz.common.model.Group;
+import ru.latoya.TestKamaz.common.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -31,14 +31,15 @@ public class GroupRestController {
     }
 
     @PutMapping("/addUser")
-    public ResponseEntity<Group> addUser(Group group) {
+    public ResponseEntity<Group> addUser(@RequestBody Group group) {
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(groupService.addUserGroup(group));
     }
 
     @PostMapping("/addGroup")
-    public ResponseEntity<Group> addGroup(Group group) {
+    public ResponseEntity<Group> addGroup(@RequestBody Group group) {
+        group.setGroupCreationDate(LocalDate.now());
         return ResponseEntity.status(HttpStatus.CREATED)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(groupService.createNewGroup(group));
@@ -48,7 +49,7 @@ public class GroupRestController {
     public ResponseEntity<String> deleteGroup(@PathVariable Long id) {
         Group group = groupService.findOne(id);
         if(group == null) {
-            throw new  PersonNotFoundException(id);
+            throw new PersonNotFoundException(id);
         }
         groupService.delete(group);
         return ResponseEntity.status(HttpStatus.OK)

@@ -1,6 +1,6 @@
-package common.reposytory;
+package ru.latoya.TestKamaz.common.reposytory;
 
-import common.model.Work;
+import ru.latoya.TestKamaz.common.model.Work;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

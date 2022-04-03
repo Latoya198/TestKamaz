@@ -1,6 +1,6 @@
-package common.reposytory;
+package ru.latoya.TestKamaz.common.reposytory;
 
-import common.model.User;
+import ru.latoya.TestKamaz.common.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

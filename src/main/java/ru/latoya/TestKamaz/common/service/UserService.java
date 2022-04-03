@@ -1,6 +1,6 @@
-package common.service;
+package ru.latoya.TestKamaz.common.service;
 
-import common.model.User;
+import ru.latoya.TestKamaz.common.model.User;
 
 import java.util.List;
 

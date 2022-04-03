@@ -1,8 +1,8 @@
-package common.controllers;
+package ru.latoya.TestKamaz.common.controllers;
 
-import common.controllers.exeption.PersonNotFoundException;
-import common.model.User;
-import common.service.UserService;
+import ru.latoya.TestKamaz.common.controllers.exeption.PersonNotFoundException;
+import ru.latoya.TestKamaz.common.model.User;
+import ru.latoya.TestKamaz.common.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -38,7 +38,7 @@ public class UserRestController {
     }
 
     @PostMapping("/addUser")
-    public ResponseEntity<User> createUser(User user) {
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -46,7 +46,7 @@ public class UserRestController {
     }
 
     @PutMapping
-    public ResponseEntity<User> updateUser(User user) {
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
         Long id = user.getId();
         User oldUser = userService.findOne(id);
         if(oldUser == null) {

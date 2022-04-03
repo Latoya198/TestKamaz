@@ -1,4 +1,4 @@
-package common.model;
+package ru.latoya.TestKamaz.common.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,18 +12,16 @@ import java.util.Set;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "works")
-public class Work {
+@Table(name = "groups")
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String workName;
-    private LocalDate creationWorkDay;
+    private String nameGroup;
+    private LocalDate groupCreationDate;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
+    @ManyToMany(mappedBy = "group")
+    private Set<User> users;
 }

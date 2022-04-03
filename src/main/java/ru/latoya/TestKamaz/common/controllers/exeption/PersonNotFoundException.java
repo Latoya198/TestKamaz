@@ -1,4 +1,4 @@
-package common.controllers.exeption;
+package ru.latoya.TestKamaz.common.controllers.exeption;
 
 public class PersonNotFoundException extends RuntimeException{
     public PersonNotFoundException(Long id) {

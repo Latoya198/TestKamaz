@@ -1,4 +1,4 @@
-package common.model;
+package ru.latoya.TestKamaz.common.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +19,11 @@ public class User {
     private long id;
 
     private String name;
-    private LocalDate age;
-    private String position;
+    private int age;
+
+    @ManyToOne
+    private Position position;
+
     private LocalDate employmentDate;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -31,7 +34,7 @@ public class User {
     )
     private Set<Group> group;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany
     private Set<Work> works;
 
 

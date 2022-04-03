@@ -1,9 +1,8 @@
-package common.service.impl;
+package ru.latoya.TestKamaz.common.service.impl;
 
-import common.model.Group;
-import common.model.User;
-import common.reposytory.GroupReposytory;
-import common.service.GroupService;
+import ru.latoya.TestKamaz.common.model.Group;
+import ru.latoya.TestKamaz.common.service.GroupService;
+import ru.latoya.TestKamaz.common.reposytory.GroupReposytory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
