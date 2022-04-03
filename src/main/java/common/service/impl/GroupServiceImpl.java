@@ -1,6 +1,7 @@
 package common.service.impl;
 
 import common.model.Group;
+import common.model.User;
 import common.reposytory.GroupReposytory;
 import common.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public void createNewGroup(Group group) {
-        reposytory.save(group);
+    public Group createNewGroup(Group group) {
+        return reposytory.save(group);
     }
 
     @Override
@@ -29,12 +30,17 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public void addUserGroup(Group group) {
-        reposytory.save(group);
+    public Group addUserGroup(Group group) {
+        return reposytory.save(group);
     }
 
     @Override
     public List<Group> findAll() {
         return reposytory.findAll();
+    }
+
+    @Override
+    public Group findOne(Long id) throws IllegalArgumentException {
+        return reposytory.findById(id).orElseThrow();
     }
 }

@@ -6,9 +6,10 @@ import common.model.User;
 import java.util.List;
 
 public interface GroupService{
-    void createNewGroup(Group group);
+    Group createNewGroup(Group group);
     void delete(Group group);
-    void addUserGroup(Group group);
+    Group addUserGroup(Group group);
     List<Group> findAll();
+    Group findOne(Long id);
 
 }

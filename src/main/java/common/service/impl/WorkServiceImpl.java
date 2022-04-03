@@ -22,7 +22,7 @@ public class WorkServiceImpl implements WorkService {
     }
 
     @Override
-    public void createNewWork(Work work) {
-        reposytory.save(work);
+    public Work createNewWork(Work work) {
+        return reposytory.save(work);
     }
 }

@@ -28,7 +28,7 @@ public class UserRestController {
                 .contentType(MediaType.APPLICATION_JSON).body(userService.findAll());
     }
 
-    @GetMapping(value = "/getByID/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<User> getById(@PathVariable Long id) {
         User user = userService.findOne(id);
         if(user == null) {
@@ -37,9 +37,9 @@ public class UserRestController {
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(user);
     }
 
-    @PostMapping
+    @PostMapping("/addUser")
     public ResponseEntity<User> createUser(User user) {
-        return (ResponseEntity<User>) ResponseEntity
+        return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userService.createNewUser(user));
